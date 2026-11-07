@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c9a24b;
+  color-scheme: dark;
+}
+
+html {
+  background: #050914;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans Arabic', Cairo, system-ui, sans-serif;
+  background: #050914;
+  color: #e9edf5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(201, 162, 75, 0.35);
+}
+
+@layer components {
+  .glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(100deg, #f1e2b4 0%, #d9b95f 45%, #a88232 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-[15px] font-semibold text-navy-950 transition-transform duration-300;
+    background: linear-gradient(100deg, #e6cf8d, #c9a24b 55%, #a88232);
+    box-shadow: 0 10px 40px -12px rgba(201, 162, 75, 0.7);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-[15px] font-medium text-gold-200 transition-colors duration-300;
+    border: 1px solid rgba(201, 162, 75, 0.4);
+  }
+  .btn-ghost:hover {
+    background: rgba(201, 162, 75, 0.1);
+    border-color: rgba(201, 162, 75, 0.7);
+  }
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(201, 162, 75, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 75, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 20%, transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
